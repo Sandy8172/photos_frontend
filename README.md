@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📸 Images library Application with JWT Authentication
 
-## Getting Started
+# 🚀 Live Demo
 
-First, run the development server:
+👉 View on Vercel: https://photos-frontend-five.vercel.app
+👉 Git repository: https://github.com/Sandy8172/photos_frontend
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## --------------------------------------------------------------------
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# 🔐 Authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    cookies-based cookies Login & Logout for secure session handlin
+    User Registration with username + password
+    Protected Routes to prevent unauthorized access
+    Session Persistence across browser tabs and refresh
 
-## Learn More
+# ⏳ Idle Session Handling
 
-To learn more about Next.js, take a look at the following resources:
+    Token Expiration Handling
+    Auto Logout after 2 minutes of inactivity
+    Notification informing users when their session expires
+    Detects user actions like mouse movement, clicks, typing, scrolling, and touch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 🖼️ Image Library
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    Live Search to filter images by title instantly
+    API Integration with custom hooks to make it clean and reusable
+    Pagination for heavy data
+    Image Detail View for expanded info
+    Fully Responsive Layout optimized for all screen sizes
 
-## Deploy on Vercel
+# 🎨 User Experience
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Modern, clean UI using Tailwind CSS + shadcn/ui
+    Smooth loading states for a polished feel
+    Clear error messages and robust validation
+    Accessibility-friendly
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## --------------------------------------------------------------------------
+
+## 🛠️ Tech Stack
+
+    Framework: Next.js 16 (App Router), (React 19)
+    Styling: Tailwind CSS, shadcn/ui
+    Authentication: JWT (jsonwebtoken) + Cookies
+
+## ---------------------------------------------------------------------------
+
+## ⚙️ Installation
+
+# make sure to install Node.js v18+ and npm in your system to run the project
+
+# From Zip file
+
+    -- Unzip the file
+    *now in cmd*
+    -- cd frontend_photos
+    -- npm install
+    -- npm run dev
+
+# From Git repository
+
+    -- Open to cmd
+    -- git clone https://github.com/Sandy8172/photos_frontend
+    -- cd frontend_photos
+    -- npm install
+    -- npm run dev
+
+## app will open in http://localhost:3000/
+
+## 🧪 Demo Credentials
+
+    Username = admin
+    Password = Admin@123456
+
+├── app/ # Next.js App Router pages
+│ ├── (protected)/ # protected routes
+│ ├── context/ # AuthProvider logic
+│ ├── hooks/ # custom hooks
+│ ├── sign-in/ # log in page
+│ ├── sign-up/ # Registration page
+│ ├── utils.jsx # utilities functions
+│ └── layout.tsx # Root layout)
+├── components/ # Reusable UI components
+│ └── useIdleTimeout.ts # Idle activity detection
