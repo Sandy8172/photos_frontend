@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 
 const DetailsModal = ({ isOpen, onOpenChange, itemDetails }) => {
+  const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -29,30 +30,35 @@ const DetailsModal = ({ isOpen, onOpenChange, itemDetails }) => {
 
         <div className="bg-neutral-primary-soft block border border-default rounded-base shadow-xs">
           {!imageError ? (
-            <Image
-              src={itemDetails.url}
-              width={400}
-              height={400}
-              alt="Image"
-              placeholder="blur"
-              blurDataURL="/placeholder.png"
-              priority
-              onError={() => setImageError(true)}
-            />
-          ) : (
             <>
-              <div className="flex flex-col items-center h-[400px] gap-y-4 text-red-500 font-semibold">
-                <p className="">Failed to load image, this is a dummy image!</p>
-                <Image
-                  src={
-                    "https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/6703dc08a6a4eacccd6fd2c5_60bdda0e212247626479da02_use%2520api.png"
-                  }
-                  width={400}
-                  height={400}
-                  alt="Image"
-                />
-              </div>
+              {imageLoading && (
+                <div className="flex items-center justify-center h-[400px] text-gray-500 font-medium">
+                  Loading image...
+                </div>
+              )}
+              <Image
+                src={itemDetails.url}
+                width={400}
+                height={400}
+                alt="Image"
+                placeholder="blur"
+                blurDataURL="/placeholder.png"
+                priority
+                onError={() => setImageError(true)}
+                onLoadingComplete={() => setImageLoading(false)}
+                className={imageLoading ? "hidden" : ""}
+              />
             </>
+          ) : (
+            <div className="flex flex-col items-center h-[400px] gap-y-4 text-red-500 font-semibold">
+              <p>Failed to load image, this is a dummy image!</p>
+              <Image
+                src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/6703dc08a6a4eacccd6fd2c5_60bdda0e212247626479da02_use%2520api.png"
+                width={400}
+                height={400}
+                alt="Fallback Image"
+              />
+            </div>
           )}
 
           <div className="p-6 text-center">
@@ -88,7 +94,8 @@ const DetailsModal = ({ isOpen, onOpenChange, itemDetails }) => {
               Id: <span className="font-semibold">{itemDetails.id}</span>
             </p>
             <p className="text-sm">
-              AlbumId: <span className="font-semibold">{itemDetails.albumId}</span>
+              AlbumId:{" "}
+              <span className="font-semibold">{itemDetails.albumId}</span>
             </p>
           </div>
         </div>
