@@ -32,7 +32,7 @@ const DetailsModal = ({ isOpen, onOpenChange, itemDetails }) => {
           {!imageError ? (
             <>
               {imageLoading && (
-                <div className="flex items-center justify-center h-[300px]  md:h-[400px] text-gray-500 font-medium">
+                <div className="flex items-center justify-center h-fit text-gray-500 font-medium">
                   Loading image...
                 </div>
               )}
@@ -50,7 +50,7 @@ const DetailsModal = ({ isOpen, onOpenChange, itemDetails }) => {
               />
             </>
           ) : (
-            <div className="flex flex-col items-center  h-[300px]  md:h-[400px] gap-y-4 text-red-500 font-semibold">
+            <div className="flex flex-col items-center  h-fit gap-y-4 text-red-500 font-semibold">
               <p>Failed to load image, this is a dummy image!</p>
               <Image
                 src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/6703dc08a6a4eacccd6fd2c5_60bdda0e212247626479da02_use%2520api.png"
